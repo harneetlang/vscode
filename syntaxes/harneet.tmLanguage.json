@@ -11,6 +11,7 @@
     { "include": "#constants" },
     { "include": "#builtins" },
     { "include": "#modules" },
+    { "include": "#imports" },
     { "include": "#function-defs" },
     { "include": "#structs" },
     { "include": "#typed-arrays" },
@@ -82,8 +83,20 @@
     "modules": {
       "patterns": [
         {
-          "name": "support.namespace.module.harneet",
+          "name": "entity.name.namespace",
           "match": "\\b(fmt|json|os|strings|math|arrays|collections|structs|input|regex|http|flags|exec|file|path|datetime|log|errors|assert|box)\\b(?=\\s*\\.)"
+        }
+      ]
+    },
+    "imports": {
+      "patterns": [
+        {
+          "name": "meta.import.harneet",
+          "match": "\\bimport\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "0": { "name": "keyword.control.import" },
+            "1": { "name": "entity.name.namespace" }
+          }
         }
       ]
     },
@@ -121,8 +134,12 @@
     "functions": {
       "patterns": [
         {
-          "name": "support.function.module.harneet",
-          "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\.([A-Za-z_][A-Za-z0-9_]*)(?=\\s*\\()"
+          "name": "meta.module-call.harneet",
+          "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\.([A-Za-z_][A-Za-z0-9_]*)(?=\\s*\\()",
+          "captures": {
+            "1": { "name": "entity.name.namespace" },
+            "2": { "name": "support.function" }
+          }
         }
       ]
     },

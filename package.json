@@ -3,7 +3,7 @@
   "repository":"https://github.com/harneetlang/vscode",
   "displayName": "Harneet Language Support",
   "description": "Syntax highlighting and language configuration for the Harneet (.ha) language",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "harneet",
   "engines": {
     "vscode": "^1.80.0"
