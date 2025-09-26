@@ -1,0 +1,99 @@
+{
+  "Harneet: function": {
+    "prefix": "ha-fn",
+    "body": [
+      "function ${1:name}(${2:args}) ${3|int,string,bool,array,map,|} {",
+      "\t${0}// body",
+      "}"
+    ],
+    "description": "Function definition"
+  },
+  "Harneet: struct type": {
+    "prefix": "ha-struct",
+    "body": [
+      "type ${1:Name} struct {",
+      "\t${2:field} ${3|int,string,bool,float64,array,map|}",
+      "}"
+    ],
+    "description": "Struct type declaration"
+  },
+  "Harneet: import module": {
+    "prefix": "ha-import",
+    "body": [
+      "import ${1|fmt,strings,arrays,json,regex,http,os,math,exec,flags|}"
+    ],
+    "description": "Import a standard module"
+  },
+  "Harneet: for-in array": {
+    "prefix": "ha-for-array",
+    "body": [
+      "for ${1:item} in ${2:array} {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "For-in over array"
+  },
+  "Harneet: for-in array with index": {
+    "prefix": "ha-for-idx",
+    "body": [
+      "for ${1:i}, ${2:item} in ${3:array} {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "For-in over array with index and value"
+  },
+  "Harneet: for-in map": {
+    "prefix": "ha-for-map",
+    "body": [
+      "for ${1:key}, ${2:value} in ${3:map} {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "For-in over map key/value"
+  },
+  "Harneet: map literal": {
+    "prefix": "ha-map",
+    "body": [
+      "{",
+      "\t${1:key}: ${2:value}${3:,}",
+      "}"
+    ],
+    "description": "Map literal"
+  },
+  "Harneet: typed array": {
+    "prefix": "ha-typed-array",
+    "body": [
+      "${1|int,string,bool,float64|}[${2:size}]{${3:elements}}"
+    ],
+    "description": "Typed array literal"
+  },
+  "Harneet: match expression": {
+    "prefix": "ha-match",
+    "body": [
+      "match ${1:expr} {",
+      "\t${2:pattern} => ${3:result}",
+      "}"
+    ],
+    "description": "Match expression"
+  },
+  "Harneet: if-else": {
+    "prefix": "ha-if",
+    "body": [
+      "if ${1:cond} {",
+      "\t${2}",
+      "} else {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "If-else block"
+  },
+  "Harneet: range loop": {
+    "prefix": "ha-range",
+    "body": [
+      "for ${1:i} in range(${2:n}) {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Range loop"
+  }
+}

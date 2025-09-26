@@ -1,0 +1,141 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Harneet",
+  "scopeName": "source.harneet",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#constants" },
+    { "include": "#builtins" },
+    { "include": "#modules" },
+    { "include": "#function-defs" },
+    { "include": "#structs" },
+    { "include": "#typed-arrays" },
+    { "include": "#functions" },
+    { "include": "#operators" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.harneet",
+          "begin": "//",
+          "beginCaptures": { "0": { "name": "punctuation.definition.comment.harneet" } },
+          "end": "\n"
+        },
+        {
+          "name": "comment.block.harneet",
+          "begin": "/\\*",
+          "beginCaptures": { "0": { "name": "punctuation.definition.comment.begin.harneet" } },
+          "end": "\\*/",
+          "endCaptures": { "0": { "name": "punctuation.definition.comment.end.harneet" } }
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.harneet",
+          "begin": "\"",
+          "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.harneet" } },
+          "end": "\"",
+          "endCaptures": { "0": { "name": "punctuation.definition.string.end.harneet" } },
+          "patterns": [
+            { "name": "constant.character.escape.harneet", "match": "\\\\.|\\\"" }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        { "name": "constant.numeric.float.harneet", "match": "(?x)\\b((?:[0-9]+\\.[0-9]*|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?)\\b" },
+        { "name": "constant.numeric.integer.harneet", "match": "\\b(0|[1-9][0-9]*)\\b" }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        { "name": "keyword.control.harneet", "match": "\\b(break|continue|return|if|else|for|in|match|case|default)\\b" },
+        { "name": "keyword.declaration.harneet", "match": "\\b(var|function|type|struct|import)\\b" },
+        { "name": "keyword.other.harneet", "match": "\\b(range|enumerate|len)\\b" }
+      ]
+    },
+    "types": {
+      "patterns": [
+        { "name": "storage.type.primitive.harneet", "match": "\\b(int8|int16|int32|int|uint|uint8|uint16|uint32|uintptr|float32|float64|bool|string|array|map)\\b" },
+        { "name": "entity.name.type.struct.harneet", "match": "\\bstruct\\b" }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        { "name": "constant.language.boolean.harneet", "match": "\\b(true|false)\\b" },
+        { "name": "constant.language.none.harneet", "match": "\\b(None|null)\\b" }
+      ]
+    },
+    "builtins": {
+      "patterns": [
+        { "name": "support.function.builtin.harneet", "match": "\\b(len|range|enumerate)\\s*(?=\\()" }
+      ]
+    },
+    "modules": {
+      "patterns": [
+        {
+          "name": "support.namespace.module.harneet",
+          "match": "\\b(fmt|json|os|strings|math|arrays|collections|structs|input|regex|http|flags|exec|file|path|datetime|log|errors|assert|box)\\b(?=\\s*\\.)"
+        }
+      ]
+    },
+    "function-defs": {
+      "patterns": [
+        {
+          "name": "meta.function.definition.harneet",
+          "begin": "\\bfunction\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "beginCaptures": {
+            "1": { "name": "entity.name.function.harneet" }
+          },
+          "end": "\\(",
+          "endCaptures": { "0": { "name": "punctuation.section.parameters.begin.harneet" } },
+          "patterns": []
+        }
+      ]
+    },
+    "structs": {
+      "patterns": [
+        {
+          "name": "meta.type.struct.declaration.harneet",
+          "match": "\\btype\\s+([A-Za-z_][A-Za-z0-9_]*)\\s+struct\\b",
+          "captures": {
+            "1": { "name": "entity.name.type.harneet" }
+          }
+        }
+      ]
+    },
+    "typed-arrays": {
+      "patterns": [
+        { "name": "storage.type.typedarray.primitive.harneet", "match": "\\b(int8|int16|int32|int|uint|uint8|uint16|uint32|uintptr|float32|float64|bool|string)\\s*\\[" },
+        { "name": "entity.name.type.typedarray.harneet", "match": "\\b([A-Z][A-Za-z0-9_]*)\\s*\\[" }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "support.function.module.harneet",
+          "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\.([A-Za-z_][A-Za-z0-9_]*)(?=\\s*\\()"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        { "name": "keyword.operator.assignment.harneet", "match": ":=|=" },
+        { "name": "keyword.operator.comparison.harneet", "match": "==|!=|<=|>=|<|>" },
+        { "name": "keyword.operator.arithmetic.harneet", "match": "[-+*/%]" },
+        { "name": "keyword.operator.logical.harneet", "match": "\\b(and|or|not)\\b|&&|\\|\\|" },
+        { "name": "punctuation.brackets.harneet", "match": "[(){}\\[\\],.:]" }
+      ]
+    }
+  },
+  "fileTypes": ["ha"],
+  "uuid": "3c1c9a61-2f65-4a3a-8f7a-0e2e5c4a0f72"
+}
